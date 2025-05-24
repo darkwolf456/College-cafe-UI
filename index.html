@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Cafe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header with Hamburger Menu -->
+  <header>
+    <div class="header-bar">
+      <div class="left-section">
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
+        <h1 class="site-title">College Cafe</h1>
+      </div>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search food..." autocomplete="off" />
+      <ul id="suggestions" class="suggestions-list"></ul>
+    </div>
+  </header>  <!-- Slide Menu --> 
+  
+  <nav id="sideMenu" class="side-menu hidden">
+  <span id="sideMenuClose" style="cursor:pointer;font-size:24px;font-weight:bold;margin-bottom:15px;">&times;</span>
+  <ul>
+    <li><a href="#snacks"><img src="assets/icons/snack.svg" alt="Snacks" class="menu-icon"> Snacks</a></li>
+    <li><a href="#main-course"><img src="assets/icons/meal.svg" alt="Main Course" class="menu-icon"> Main Course</a></li>
+    <li><a href="#beverages"><img src="assets/icons/drink.svg" alt="Beverages" class="menu-icon"> Beverages</a></li>
+    <li><a href="#Desserts"><img src="assets/icons/sweet.svg" alt="Desserts" class="menu-icon"> Desserts</a></li>
+    <li><a href="orders.html"><img src="assets/icons/order.svg" alt="Orders" class="menu-icon"> My Orders</a></li>
+    <li><button onclick="openCart()" class="menu-cart-btn"><img src="assets/icons/cart.svg" alt="Cart" class="menu-icon"> View Cart</button></li>
+  </ul>
+</nav>
+  
+  <!-- Slider with Today’s Specials -->  <section class="slider" id="slider">
+    <div class="slide active">
+      <img src="assets/cheese-pizza.jpg" alt="Cheese Pizza" />
+      <p>Today's Special: Cheese Burst Pizza – 20% Off!</p>
+    </div>
+    <div class="slide">
+      <img src="assets/cold-coffee.jpg" alt="Cold Coffee" />
+      <p>Buy 1 Get 1 Free on Cold Coffee!</p>
+    </div>
+    <div class="slide">
+      <img src="assets/veg-thali.jpg" alt="Veg Thali" />
+      <p>Free Dessert with any Thali</p>
+    </div>
+    <div class="slide">
+      <img src="assets/pastry.jpg" alt="Pastry" />
+      <p>New Arrival: Chocolate Pastry</p>
+    </div>
+  </section>  <div class="slider-dots" id="sliderDots"></div>  <!-- Menu Sections -->  <main>
+    <section class="menu" id="snacks">
+      <h2>Snacks</h2>
+      <div class="menu-scroll">
+        <div class="menu-item">
+          <img src="assets/samosa.jpg" alt="Samosa" />
+          <h3>Samosa</h3>
+          <p class="desc">Crispy pastry stuffed with spiced potatoes and peas</p>
+          <p>Price: ₹15</p>
+          <input type="number" min="1" value="1" class="qty-input" />
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        <div class="menu-item">
+  <img src="assets/pakora.jpg" alt="Pakora" />
+  <h3>Pakora</h3>
+  <p class="desc">Deep-fried fritters made with gram flour and vegetables</p>
+  <p>Price: ₹20</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+<div class="menu-item">
+  <img src="assets/cheese-pizza.jpg" alt="Cheese Pizza" />
+  <h3>Cheese Pizza</h3>
+  <p class="desc">Thin crust pizza loaded with mozzarella and cheddar</p>
+  <p>Price: ₹120</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="menu-item">
+  <img src="assets/burger.jpg" alt="Burger" />
+  <h3>Burger</h3>
+  <p class="desc">Toasted bun with crispy patty, lettuce and cheese</p>
+  <p>Price: ₹50</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+<div class="menu-item">
+  <img src="assets/grilled-sandwich.jpg" alt="Grilled Sandwich" />
+  <h3>Grilled Sandwich</h3>
+  <p class="desc">Stuffed bread grilled to perfection with cheese and veggies</p>
+  <p>Price: ₹40</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+      </div>
+    </section><section class="menu" id="main-course">
+  <h2>Main Course</h2>
+  <div class="menu-scroll">
+    <div class="menu-item">
+      <img src="assets/veg-thali.jpg" alt="Veg Thali" />
+      <h3>Veg Thali</h3>
+      <p class="desc">Traditional meal with rice, chapati, curry and dessert</p>
+      <p>Price: ₹100</p>
+      <input type="number" min="1" value="1" class="qty-input" />
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+  <img src="assets/chole-bhature.jpg" alt="Chole Bhature" />
+  <h3>Chole Bhature</h3>
+  <p class="desc">Spicy chickpeas served with fluffy fried bread</p>
+  <p>Price: ₹70</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="menu-item">
+  <img src="assets/masala-dosa.jpg" alt="Masala Dosa" />
+  <h3>Masala Dosa</h3>
+  <p class="desc">Crispy dosa filled with spicy mashed potatoes, served with chutney</p>
+  <p>Price: ₹60</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="menu-item">
+  <img src="assets/idli.jpg" alt="Idli" />
+  <h3>Idli</h3>
+  <p class="desc">Steamed rice cakes served with sambar and coconut chutney</p>
+  <p>Price: ₹30</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="menu-item">
+  <img src="assets/fried-rice.jpg" alt="Fried Rice" />
+  <h3>Fried Rice</h3>
+  <p class="desc">Basmati rice stir-fried with vegetables and spices</p>
+  <p>Price: ₹60</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+  </div>
+</section>
+
+<section class="menu" id="beverages">
+  <h2>Beverages</h2>
+  <div class="menu-scroll">
+    <div class="menu-item">
+      <img src="assets/cold-coffee.jpg" alt="Cold Coffee" />
+      <h3>Cold Coffee</h3>
+      <p class="desc">Chilled creamy coffee beverage</p>
+      <p>Price: ₹40</p>
+      <input type="number" min="1" value="1" class="qty-input" />
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+  <img src="assets/tea.jpg" alt="Tea" />
+  <h3>Tea</h3>
+  <p class="desc">Hot masala chai served in a cup</p>
+  <p>Price: ₹10</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="menu-item">
+  <img src="assets/coca-cola.jpg" alt="Coca Cola" />
+  <h3>Coca Cola</h3>
+  <p class="desc">Chilled classic Coca Cola bottle (300ml)</p>
+  <p>Price: ₹20</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="menu-item">
+  <img src="assets/pepsi.jpg" alt="Pepsi" />
+  <h3>Pepsi</h3>
+  <p class="desc">Cold and fizzy Pepsi bottle (300ml)</p>
+  <p>Price: ₹20</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="menu-item">
+  <img src="assets/sprite.jpg" alt="Sprite" />
+  <h3>Sprite</h3>
+  <p class="desc">Lemon-flavored soft drink (300ml)</p>
+  <p>Price: ₹20</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="menu-item">
+  <img src="assets/water.jpg" alt="Mineral Water" />
+  <h3>Mineral Water</h3>
+  <p class="desc">Packaged drinking water (500ml)</p>
+  <p>Price: ₹10</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+
+<div class="menu-item">
+  <img src="assets/frooti.jpg" alt="Frooti" />
+  <h3>Frooti</h3>
+  <p class="desc">Refreshing mango drink tetra pack</p>
+  <p>Price: ₹10</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+  </div>
+</section>
+
+<section class="menu" id="Desserts">
+  <h2>Desserts</h2>
+  <div class="menu-scroll">
+    <div class="menu-item">
+      <img src="assets/icecream.jpg" alt="Ice Cream" />
+      <h3>Ice Cream</h3>
+      <p class="desc">Vanilla scoop with chocolate syrup</p>
+      <p>Price: ₹30</p>
+      <input type="number" min="1" value="1" class="qty-input" />
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+      <img src="assets/pastry.jpg" alt="Pastry" />
+      <h3>Chocolate Pastry</h3>
+      <p class="desc">Soft chocolate sponge with creamy icing</p>
+      <p>Price: ₹35</p>
+      <input type="number" min="1" value="1" class="qty-input" />
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="menu-item">
+  <img src="assets/gulab-jamun.jpg" alt="Gulab Jamun" />
+  <h3>Gulab Jamun</h3>
+  <p class="desc">Soft deep-fried balls soaked in sugar syrup</p>
+  <p>Price: ₹25</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+<div class="menu-item">
+  <img src="assets/rasgulla.jpg" alt="Rasgulla" />
+  <h3>Rasgulla</h3>
+  <p class="desc">Spongy white balls made from chenna, soaked in sweet syrup</p>
+  <p>Price: ₹25</p>
+  <input type="number" min="1" value="1" class="qty-input" />
+  <button class="add-to-cart">Add to Cart</button>
+</div>
+  </div>
+</section>
+
+  </main>  <!-- Cart Modal -->  <div id="cartModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Your Cart</h3>
+      <ul id="cartItems"></ul>
+      <p id="cartTotal">Total: ₹0</p>
+      <button id="placeOrderBtn" class="add-to-cart">Place Order</button>
+      <button onclick="closeCart()" class="close-btn">Close</button>
+    </div>
+  </div>  <!-- Toast Notification -->  <div id="toast"></div>  <!-- Order Placed Popup -->  <div id="popup" class="popup hidden">
+    <div class="popup-content styled-popup">
+      <img src="assets/tick.png" alt="Order Success" class="tick-img" />
+      <p class="popup-message">Order Placed</p>
+    </div>
+  </div>  <!-- Footer -->  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2025 <strong>thedarkwolfhackers</strong>. All rights reserved.</p>
+      <p>Designed with dedication by thedarkwolfhackers Hackathon Team.</p>
+      <div class="footer-links">
+        <a href="mailto:contact@thedarkwolfhackers.dev" class="footer-link">Contact Us</a>
+      </div>
+    </div>
+  </footer> 
+  
+<!-- Floating Cart Button with SVG -->
+<button id="floatingCartBtn" onclick="openCart()">
+  <img src="assets/icons/floating-cart.svg" alt="Cart" class="floating-cart-icon" />
+  <span id="cartCountBadge">0</span>
+</button>
+  
+  <!-- Script -->  <script src="script.js"></script>  <script>
+    document.getElementById("menuToggle").addEventListener("click", () => {
+      document.getElementById("sideMenu").classList.toggle("hidden");
+    });
+  </script></body>
+</html>

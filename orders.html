@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Orders - College Cafe</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+  .return-home-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff5722;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+    .orders-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }.order-card {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.order-card:last-child {
+  border-bottom: none;
+}
+
+.order-header {
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #ff5722;
+}
+
+.order-item {
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+.status {
+  font-size: 14px;
+  color: green;
+  margin-top: 5px;
+}
+
+.cancel-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background: #ff5252;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cancel-btn:hover {
+  background-color: #e53935;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Orders</h1>
+  </header>  
+  
+  <a href="index.html" class="return-home-btn">← Return to Home</a>
+  
+  <div class="orders-container" id="ordersContainer">
+    <!-- Orders will be shown here -->
+  </div>  <script>
+  const ordersContainer = document.getElementById('ordersContainer');
+  let orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+  function renderOrders() {
+    ordersContainer.innerHTML = '';
+
+    if (orders.length === 0) {
+      ordersContainer.innerHTML = '<p>No orders found.</p>';
+      return;
+    }
+
+    orders.forEach((order, index) => {
+      const card = document.createElement('div');
+      card.classList.add('order-card');
+
+      const header = document.createElement('div');
+      header.classList.add('order-header');
+      header.textContent = `Order #${index + 1}`;
+      card.appendChild(header);
+
+      order.items.forEach(item => {
+        const itemEl = document.createElement('div');
+        itemEl.classList.add('order-item');
+        itemEl.textContent = `${item.name} x${item.qty}`;
+        card.appendChild(itemEl);
+      });
+
+      const total = document.createElement('div');
+      total.classList.add('order-item');
+      total.innerHTML = `<strong>Total: ₹${order.total}</strong>`;
+      card.appendChild(total);
+
+      const status = document.createElement('div');
+      status.classList.add('status');
+      status.textContent = `Status: ${order.status}`;
+      card.appendChild(status);
+
+      const cancelBtn = document.createElement('button');
+      cancelBtn.textContent = 'Cancel Order';
+      cancelBtn.classList.add('cancel-btn');
+      cancelBtn.onclick = () => cancelOrder(index);
+      card.appendChild(cancelBtn);
+
+      ordersContainer.appendChild(card);
+    });
+  }
+
+  function cancelOrder(index) {
+    if (confirm('Are you sure you want to cancel this order?')) {
+      orders.splice(index, 1);
+      localStorage.setItem('orders', JSON.stringify(orders));
+      renderOrders();
+    }
+  }
+
+  renderOrders();
+</script></body>
+</html>
