@@ -96,6 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
       status: "Preparing",
     };
 
+const note = document.getElementById("orderNote").value;
+  order.note = note;
+
     cart.forEach((item) => {
       const existing = order.items.find((i) => i.name === item.name);
       if (existing) {
